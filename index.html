@@ -523,7 +523,9 @@
             <div class="header-controls">
                 <button class="btn-primary" onclick="toggleDarkMode()">🌙 Dark Mode</button>
                 <button class="btn-primary" onclick="window.print()">🖨️ Print</button>
-                <button class="btn-primary" onclick="exportChecklist()">📥 Export</button>
+                <button class="btn-primary" onclick="exportProgress()">💾 Export Progress</button>
+                <button class="btn-primary" onclick="document.getElementById('importFile').click()">📂 Import Progress</button>
+                <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importProgress(event)">
                 <button class="btn-secondary btn-sm" onclick="resetAllCheckboxes()">Reset All</button>
             </div>
         </header>
@@ -1775,32 +1777,90 @@
         updateCountdown();
         updateProgress();
 
-        // Export Checklist
-        function exportChecklist() {
-            let text = 'SINGAPORE AI CHALLENGE 2026 - TRAVEL CHECKLIST\n';
-            text += '==============================================\n\n';
+        // Export Progress (JSON format for cross-device use)
+        function exportProgress() {
+            const data = {
+                exportDate: new Date().toISOString(),
+                version: '1.0',
+                checkboxStates: {},
+                darkMode: document.body.classList.contains('dark-mode'),
+                activeTab: localStorage.getItem('activeTab') || 'checklist'
+            };
             
-            document.querySelectorAll('.section').forEach(section => {
-                const title = section.querySelector('h2').textContent.trim();
-                text += title + '\n';
-                text += '-'.repeat(title.length) + '\n';
-                
-                section.querySelectorAll('.checklist-item').forEach(item => {
-                    const checkbox = item.querySelector('input[type="checkbox"]');
-                    const label = item.querySelector('.item-text').textContent.trim();
-                    const status = checkbox.checked ? '✓' : '☐';
-                    text += status + ' ' + label + '\n';
-                });
-                
-                text += '\n';
+            // Collect all checkbox states
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                const id = checkbox.parentElement.textContent.trim();
+                data.checkboxStates[id] = checkbox.checked;
             });
             
-            const blob = new Blob([text], { type: 'text/plain' });
+            // Create downloadable JSON file
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Singapore_Travel_Checklist.txt';
+            a.download = 'Singapore_Travel_Progress_' + new Date().toISOString().split('T')[0] + '.json';
             a.click();
+            URL.revokeObjectURL(url);
+            
+            alert('✅ Progress exported! Transfer this file to another device and import it to restore your checklist.');
+        }
+        
+        // Import Progress from JSON file
+        function importProgress(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    if (!data.checkboxStates) {
+                        alert('❌ Invalid file format');
+                        return;
+                    }
+                    
+                    // Apply checkbox states
+                    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                        const id = checkbox.parentElement.textContent.trim();
+                        if (data.checkboxStates.hasOwnProperty(id)) {
+                            checkbox.checked = data.checkboxStates[id];
+                            localStorage.setItem('checkbox_' + id, checkbox.checked);
+                            if (checkbox.checked) {
+                                checkbox.parentElement.classList.add('completed');
+                            } else {
+                                checkbox.parentElement.classList.remove('completed');
+                            }
+                        }
+                    });
+                    
+                    // Apply dark mode preference
+                    if (data.darkMode && !document.body.classList.contains('dark-mode')) {
+                        document.body.classList.add('dark-mode');
+                        localStorage.setItem('darkMode', 'true');
+                    } else if (!data.darkMode && document.body.classList.contains('dark-mode')) {
+                        document.body.classList.remove('dark-mode');
+                        localStorage.setItem('darkMode', 'false');
+                    }
+                    
+                    // Apply active tab
+                    if (data.activeTab) {
+                        localStorage.setItem('activeTab', data.activeTab);
+                    }
+                    
+                    updateProgress();
+                    
+                    const exportDate = new Date(data.exportDate).toLocaleString();
+                    alert('✅ Progress imported successfully!\n\nExported on: ' + exportDate);
+                    
+                } catch (error) {
+                    alert('❌ Error reading file: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+            
+            // Reset file input so same file can be imported again
+            event.target.value = '';
         }
 
         // Reset All Checkboxes
