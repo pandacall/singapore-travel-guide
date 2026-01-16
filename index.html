@@ -1720,14 +1720,15 @@
             const id = checkbox.parentElement.textContent.trim();
             
             // Load state
-            if (localStorage.getItem('checkbox_' + id) === 'true') {
+            const savedState = localStorage.getItem('checkbox_' + id);
+            if (savedState === 'true') {
                 checkbox.checked = true;
                 checkbox.parentElement.classList.add('completed');
             }
             
             // Save state on change
             checkbox.addEventListener('change', function() {
-                localStorage.setItem('checkbox_' + id, this.checked);
+                localStorage.setItem('checkbox_' + id, this.checked.toString());
                 this.parentElement.classList.toggle('completed');
                 updateProgress();
             });
