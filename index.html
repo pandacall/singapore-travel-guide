@@ -1716,11 +1716,13 @@
         });
 
         // Checkbox Persistence & Progress Update
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            const id = checkbox.parentElement.textContent.trim();
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+            // Use index-based ID for consistency
+            const id = 'checkbox_' + index;
+            checkbox.setAttribute('data-checkbox-id', id);
             
             // Load state
-            const savedState = localStorage.getItem('checkbox_' + id);
+            const savedState = localStorage.getItem(id);
             if (savedState === 'true') {
                 checkbox.checked = true;
                 checkbox.parentElement.classList.add('completed');
@@ -1728,7 +1730,8 @@
             
             // Save state on change
             checkbox.addEventListener('change', function() {
-                localStorage.setItem('checkbox_' + id, this.checked.toString());
+                const checkboxId = this.getAttribute('data-checkbox-id');
+                localStorage.setItem(checkboxId, this.checked.toString());
                 this.parentElement.classList.toggle('completed');
                 updateProgress();
             });
@@ -1782,15 +1785,15 @@
         function exportProgress() {
             const data = {
                 exportDate: new Date().toISOString(),
-                version: '1.0',
+                version: '2.0',
                 checkboxStates: {},
                 darkMode: document.body.classList.contains('dark-mode'),
                 activeTab: localStorage.getItem('activeTab') || 'checklist'
             };
             
-            // Collect all checkbox states
-            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                const id = checkbox.parentElement.textContent.trim();
+            // Collect all checkbox states using index-based IDs
+            document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+                const id = 'checkbox_' + index;
                 data.checkboxStates[id] = checkbox.checked;
             });
             
@@ -1821,12 +1824,13 @@
                         return;
                     }
                     
-                    // Apply checkbox states
-                    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                        const id = checkbox.parentElement.textContent.trim();
+                    // Apply checkbox states using index-based IDs
+                    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+                        const id = 'checkbox_' + index;
                         if (data.checkboxStates.hasOwnProperty(id)) {
                             checkbox.checked = data.checkboxStates[id];
-                            localStorage.setItem('checkbox_' + id, checkbox.checked);
+                            checkbox.setAttribute('data-checkbox-id', id);
+                            localStorage.setItem(id, checkbox.checked.toString());
                             if (checkbox.checked) {
                                 checkbox.parentElement.classList.add('completed');
                             } else {
@@ -1867,11 +1871,11 @@
         // Reset All Checkboxes
         function resetAllCheckboxes() {
             if (confirm('Reset all checkboxes? This cannot be undone.')) {
-                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
                     checkbox.checked = false;
                     checkbox.parentElement.classList.remove('completed');
-                    const id = checkbox.parentElement.textContent.trim();
-                    localStorage.removeItem('checkbox_' + id);
+                    const id = 'checkbox_' + index;
+                    localStorage.removeItem(id);
                 });
                 updateProgress();
             }
