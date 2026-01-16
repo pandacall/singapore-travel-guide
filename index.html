@@ -557,8 +557,1117 @@
             <button class="tab-btn" onclick="switchTab('tips')">💡 Travel Tips</button>
         </div>
 
-        <!-- Content sections would continue here as in the original file -->
-        <!-- For brevity, the full content is preserved from the original file -->
+        <!-- TAB 1: PRE-DEPARTURE CHECKLIST -->
+        <div id="checklist" class="tab-content active">
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Travel Documents (CRITICAL)</h2>
+                </div>
+                <div class="section-body">
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <span><strong id="docs-count">0</strong>/7</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width:0%" id="docs-progress"></div></div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox docs-checkbox" onchange="updateProgress()">
+                        <div class="item-text">
+                            Passport valid until at least July 18, 2026 (6 months from departure)
+                            <span class="item-badge">CRITICAL</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox docs-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Philippine Airlines e-ticket PR 079-5528196409 (printed & digital)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox docs-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Hotel confirmation (Crowne Plaza Changi Airport)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox docs-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Event information package (printed)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox docs-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Emergency contact list (family, hotel, event organizers)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox docs-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Photocopies of passport stored separately</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox docs-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Singapore Arrival Card (SGAC) completed online 3 days before</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Tech & Equipment (for AI Challenge)</h2>
+                </div>
+                <div class="section-body">
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <span><strong id="tech-count">0</strong>/7</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width:0%" id="tech-progress"></div></div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tech-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Laptop (required for Jan 20 red teaming challenge) <span class="item-badge">CRITICAL</span></div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tech-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Laptop charger (fully charged before departure)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tech-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Universal travel adapter (Singapore uses Type G, 230V)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tech-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Power bank for phone</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tech-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Phone charger</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tech-checkbox" onchange="updateProgress()">
+                        <div class="item-text">USB cables and accessories</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tech-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Backup charger if available</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Clothing & Personal</h2>
+                </div>
+                <div class="section-body">
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <span><strong id="clothing-count">0</strong>/8</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width:0%" id="clothing-progress"></div></div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Smart casual attire for Jan 19 (training + welcome dinner)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Event t-shirt for Jan 20 challenge (will be provided)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Business casual for Jan 21 workshops</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Comfortable walking shoes</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Light jacket (venues are air-conditioned)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Casual wear for hotel/exploring</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Personal medications + prescriptions</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox clothing-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Travel-size toiletries & first-aid kit</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Money & Payments</h2>
+                </div>
+                <div class="section-body">
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <span><strong id="money-count">0</strong>/5</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width:0%" id="money-progress"></div></div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox money-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Credit/debit cards (Visa/Mastercard)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox money-checkbox" onchange="updateProgress()">
+                        <div class="item-text">SGD 50-100 cash for hawker centers & transport</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox money-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Notify bank of Singapore travel dates</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox money-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Download Grab app for ride-hailing</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox money-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Know exchange rates (1 SGD ≈ 27 PHP)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Pre-Departure Tasks (1 week before)</h2>
+                </div>
+                <div class="section-body">
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Progress</span>
+                            <span><strong id="tasks-count">0</strong>/6</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width:0%" id="tasks-progress"></div></div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tasks-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Web check-in for PR 511 (opens 24h before)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tasks-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Check Singapore entry requirements at ICA website</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tasks-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Join event Slack channel (invitation from IMDA)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tasks-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Confirm hotel check-in details & transfer timing</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tasks-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Arrange transport to NAIA Terminal 1 (arrive by 3:50am on Jan 18)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="item-checkbox tasks-checkbox" onchange="updateProgress()">
+                        <div class="item-text">Set alarms for 2:00am departure day</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: DAY-BY-DAY ITINERARY -->
+        <div id="itinerary" class="tab-content">
+            <!-- January 18 -->
+            <div class="day-card">
+                <h3>📅 January 18, 2026 (Sunday) - TRAVEL DAY ✈️</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">Before Airport (2:00am - 3:30am)</div>
+                        <div class="timeline-description">
+                            🏠 Wake up at 2:00am | Final luggage check | Leave for NAIA Terminal 1 by 3:00am
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">Manila Airport (3:50am - 5:50am)</div>
+                        <div class="timeline-description">
+                            Arrive NAIA Terminal 1 → Check-in for PR 511 → Immigration → Boarding 5:50am
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">In-Flight (5:50am - 9:35am Singapore time)</div>
+                        <div class="timeline-description">
+                            Duration: 3h 45min | Breakfast onboard | Equipment: Airbus A321
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">Singapore Arrival (9:35am - 11:00am)</div>
+                        <div class="timeline-description">
+                            Changi Terminal 2 → Immigration → Baggage claim → Customs clearance
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">Hotel Check-in & Free Time (11:00am onwards)</div>
+                        <div class="timeline-description">
+                            Skytrain Terminal 2 → Terminal 3 → Crowne Plaza Changi Airport (connected via Skytrain)<br>
+                            <strong>Option:</strong> Rest & recover OR visit Jewel Changi (0 min away)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- January 19 -->
+            <div class="day-card">
+                <h3>📅 January 19, 2026 (Monday) - TRAINING & WELCOME</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">8:50am - Meet at Hotel Lobby</div>
+                        <div class="timeline-description">
+                            Event staff will lead to Chengal Ballroom, Level 1
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">9:00am-12:00pm - Red Teaming Training Workshop</div>
+                        <div class="timeline-description">
+                            📚 Introduction to AI red teaming concepts<br>
+                            🎯 Challenge platform walkthrough and demo<br>
+                            ✅ <strong>Remember:</strong> Bring laptop and charger; take notes
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">12:00pm-2:00pm - Lunch Break</div>
+                        <div class="timeline-description">
+                            On-site at Crowne Plaza | Network with other participants
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">2:00pm-4:30pm - AI Assurance Event</div>
+                        <div class="timeline-description">
+                            Panel: "Making AI Assurance Work in the Real World"<br>
+                            IMDA & AI Verify Foundation insights
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">4:30pm-6:00pm - Networking Reception</div>
+                        <div class="timeline-description">
+                            Allora Ristorante Bar, Level 1 | Meet 14 country participants
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">7:00pm-9:00pm - Welcome Dinner</div>
+                        <div class="timeline-description">
+                            Chengal Ballroom | Smart casual or National Dress | Formal welcome
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- January 20 -->
+            <div class="day-card">
+                <h3>📅 January 20, 2026 (Tuesday) - CHALLENGE DAY 🏆</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">8:40am - Meet at Hotel Lobby (10 min earlier!)</div>
+                        <div class="timeline-description">Important: Set alarm for 7:30am!</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">9:00am-12:30pm - SINGAPORE AI SAFETY RED TEAMING CHALLENGE</div>
+                        <div class="timeline-description">
+                            📍 Chengal Ballroom | Duration: 3 hours<br>
+                            🎯 Format: Jeopardy-style, 7 challenges<br>
+                            🌍 Languages: English (1.5h) + Tagalog (1.5h)<br>
+                            💾 Focus: Data leakage risks in AI applications<br>
+                            🏅 Scoring: Easy (450pts), Medium (475pts), Hard (500pts)<br>
+                            ✅ Bring: Laptop (charged), water bottle, charger<br>
+                            ⚠️ Rules: AI tools allowed BUT no brute force, no DDoS, no sharing flags
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">12:30pm-2:30pm - Lunch Break</div>
+                        <div class="timeline-description">
+                            Rest and recharge after 3-hour competition
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">2:30pm-4:30pm - Challenge Feedback Session</div>
+                        <div class="timeline-description">
+                            Share observations on AI systems tested<br>
+                            Discuss safety & performance issues found
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">5:00pm-5:30pm - Prize Presentation</div>
+                        <div class="timeline-description">
+                            English component: SGD 500 / 300 / 200<br>
+                            Regional language: Token prize per country
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">5:30pm onwards - Your Best Singapore Time! 🌟</div>
+                        <div class="timeline-description">
+                            <strong>Option 1:</strong> Marina Bay Night Experience (Gardens by the Bay, Merlion)<br>
+                            <strong>Option 2:</strong> East Coast Park (seaside walk)<br>
+                            <strong>Option 3:</strong> Food hopping at hawker centers
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- January 21 -->
+            <div class="day-card">
+                <h3>📅 January 21, 2026 (Wednesday) - WORKSHOPS & FREE TIME</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">9:00am-12:30pm - Multilingual & Multicultural Workshop</div>
+                        <div class="timeline-description">
+                            Regional AI safety initiatives from 14 countries<br>
+                            Collaboration opportunities & discussion
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">12:30pm-2:00pm - Lunch Break</div>
+                        <div class="timeline-description">On-site dining</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">2:00pm-4:00pm - Benchmarking Workshop</div>
+                        <div class="timeline-description">
+                            IMDA's Starter Kit for Testing LLM Applications<br>
+                            Project Moonshot hands-on session<br>
+                            ✅ Bring: Laptop for hands-on
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">4:00pm onwards - YOUR MOST FREE TIME! 🎉</div>
+                        <div class="timeline-description">
+                            <strong>Option 1:</strong> Sentosa Island (1h, beaches, attractions)<br>
+                            <strong>Option 2:</strong> Cultural Trail (Chinatown + Little India + Kampong Glam)<br>
+                            <strong>Option 3:</strong> Singapore Classics (Merlion, Singapore Flyer)<br>
+                            <strong>Option 4:</strong> Hawker hopping<br>
+                            <strong>Option 5:</strong> Relaxed evening at hotel
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- January 22 -->
+            <div class="day-card">
+                <h3>📅 January 22, 2026 (Thursday) - DEPARTURE DAY</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">Morning/Afternoon (until 4pm)</div>
+                        <div class="timeline-description">
+                            Optional last-minute activity or shopping<br>
+                            <strong>Must return to hotel by 2-3pm for packing</strong>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">4:00pm - Hotel Checkout & Preparation</div>
+                        <div class="timeline-description">
+                            Pack luggage | Settle hotel charges | Charge devices
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">6:00pm - Check-in & Departure Preparation</div>
+                        <div class="timeline-description">
+                            Head to Terminal 2 via Skytrain (5-10 min from hotel)<br>
+                            Check-in for PR 512<br>
+                            Immigration & security screening
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">8:10pm - Departure</div>
+                        <div class="timeline-description">
+                            Boarding starts 1.5 hours before<br>
+                            Destination: Manila NAIA Terminal 1
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">In-Flight (8:10pm - 12:20am +1 day)</div>
+                        <div class="timeline-description">
+                            Duration: 4h 10min | Dinner served | Rest up!
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time"></div>
+                        <div class="timeline-title">12:20am Jan 23 - Manila Arrival</div>
+                        <div class="timeline-description">
+                            Immigration → Baggage claim → Customs<br>
+                            ✅ Arrange transport home beforehand!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: SINGAPORE ACTIVITIES -->
+        <div id="activities" class="tab-content">
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Free Time Activity Guide</h2>
+                </div>
+                <div class="section-body">
+                    <p><strong>Best Free Times:</strong> Jan 18 afternoon (if not too tired), Jan 20 evening (5:30pm+), Jan 21 afternoon (4pm+)</p>
+                    <p><strong>Budget Estimate for 5 days: SGD 150-250</strong> (very reasonable!)</p>
+
+                    <!-- Marina Bay -->
+                    <div class="activity-category">
+                        <div class="category-label">🌃 MARINA BAY NIGHT EXPERIENCE (40 min MRT)</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Gardens by the Bay</div>
+                                <div class="timeline-description">
+                                    📍 Bayfront MRT Station<br>
+                                    ⭐ Supertree Light Show: 7:45pm & 8:45pm (FREE, 15 min)<br>
+                                    🌿 Cooled Conservatories: SGD 28 (Cloud Forest/Flower Dome, closes 9pm)<br>
+                                    ⏱️ Time: 2-3 hours | 💰 Cost: SGD 0-30
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Marina Bay Sands Area</div>
+                                <div class="timeline-description">
+                                    💧 Spectra light & water show: 8pm & 9pm (FREE)<br>
+                                    🦁 Merlion Park: 24/7 open (FREE, must-see landmark)<br>
+                                    🌉 Helix Bridge walk with city views<br>
+                                    ⏱️ Perfect for: Celebrating after Challenge!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- East Coast Park -->
+                    <div class="activity-category">
+                        <div class="category-label">🌊 EAST COAST PARK (20 min Grab, SGD 8-12)</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Activities</div>
+                                <div class="timeline-description">
+                                    🌅 Seaside walk with sunset views (sunset ~7:15pm)<br>
+                                    🍜 East Coast Lagoon Food Village (hawker food)<br>
+                                    🏖️ Beach relaxation<br>
+                                    ⏱️ Time: 2-3 hours | 💰 Cost: SGD 20-30 (food + transport)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sentosa Island -->
+                    <div class="activity-category">
+                        <div class="category-label">⭐ SENTOSA ISLAND (1 hour travel)</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Getting There</div>
+                                <div class="timeline-description">
+                                    Route: Changi Airport → HarbourFront MRT → Sentosa Express (SGD 4)
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Beaches (FREE)</div>
+                                <div class="timeline-description">
+                                    🏖️ Siloso Beach, Palawan Beach, Tanjong Beach<br>
+                                    💰 Cost: FREE | Swim or relax
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Paid Attractions (Optional)</div>
+                                <div class="timeline-description">
+                                    🐠 S.E.A. Aquarium: SGD 41<br>
+                                    🛝 Skyline Luge: SGD 28-45<br>
+                                    ✨ Wings of Time show: 7:40pm & 8:40pm (SGD 18)
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Time & Budget</div>
+                                <div class="timeline-description">
+                                    ⏱️ 4-6 hours | Return: 10-11pm | 💰 SGD 20-80 depending on activities
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cultural Trail -->
+                    <div class="activity-category">
+                        <div class="category-label">🎨 CULTURAL TRAIL (3-4 hours, 40 min MRT)</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Chinatown</div>
+                                <div class="timeline-description">
+                                    🏯 Buddha Tooth Relic Temple (FREE, closes 6pm)<br>
+                                    🍜 Hawker food at Maxwell or Chinatown Complex<br>
+                                    🛍️ Souvenir shopping
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Little India</div>
+                                <div class="timeline-description">
+                                    🌈 Colorful streets and shops<br>
+                                    🕉️ Sri Veeramakaliamman Temple (FREE)<br>
+                                    🍛 Tekka Centre hawker food
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Kampong Glam</div>
+                                <div class="timeline-description">
+                                    🕌 Sultan Mosque (FREE, closes 6pm)<br>
+                                    📸 Haji Lane (Instagram-worthy, boutiques)<br>
+                                    🍴 Arab Street dining
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Cost & Time</div>
+                                <div class="timeline-description">
+                                    ⏱️ 4-6 hours (visit 2-3 areas) | 💰 SGD 20-40 (food + souvenirs)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Singapore Classics -->
+                    <div class="activity-category">
+                        <div class="category-label">🎡 SINGAPORE CLASSICS (40 min MRT)</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Singapore Flyer</div>
+                                <div class="timeline-description">
+                                    🎢 Observation wheel: SGD 33 (closes 10pm)<br>
+                                    🎠 180m height, 360° city views
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Must-See Landmarks</div>
+                                <div class="timeline-description">
+                                    🦁 Merlion Park (must-do!)<br>
+                                    🏨 Raffles Hotel historic area<br>
+                                    🏛️ Fullerton Hotel nearby
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Time & Cost</div>
+                                <div class="timeline-description">
+                                    ⏱️ 3-4 hours | 💰 SGD 33+ (Flyer ticket)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hawker Centers -->
+                    <div class="activity-category">
+                        <div class="category-label">🍜 HAWKER CENTER HOPPING</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Top Hawker Centers</div>
+                                <div class="timeline-description">
+                                    🏢 Lau Pa Sat (40 min MRT) - Heritage center, CBD<br>
+                                    🌳 Newton Food Centre (40 min MRT) - Famous, touristy<br>
+                                    🎨 Tiong Bahru Market (40 min MRT) - Hipster neighborhood
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Must-Try Dishes</div>
+                                <div class="timeline-description">
+                                    🍗 Chicken rice | 🍲 Laksa | 🥜 Satay<br>
+                                    🦞 Chili crab | 🥖 Roti prata
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Cost & Time</div>
+                                <div class="timeline-description">
+                                    💰 SGD 5-15 per meal | ⏱️ 2-3 hours per location
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> MRT Transportation Guide</h2>
+                </div>
+                <div class="section-body">
+                    <div class="activity-category">
+                        <div class="category-label">💳 EZ-Link Card (RECOMMENDED)</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Cost & Purchase</div>
+                                <div class="timeline-description">
+                                    💰 SGD 10 total<br>
+                                    • SGD 5 card cost (non-refundable)<br>
+                                    • SGD 5 stored value (usable immediately)<br>
+                                    📍 Buy at: Airport MRT, 7-Eleven, SMRT offices
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">How to Use</div>
+                                <div class="timeline-description">
+                                    1️⃣ Tap card at fare gate entering MRT<br>
+                                    2️⃣ Fare automatically deducted<br>
+                                    3️⃣ Tap again when exiting<br>
+                                    ✨ Works on buses, MRT, LRT, taxis, shops
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Recharging</div>
+                                <div class="timeline-description">
+                                    💳 Available at all MRT stations<br>
+                                    Accept: Cash, NETS, or credit/debit card<br>
+                                    📱 SimplyGo app for mobile recharge (iOS/Android)
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Route from Changi Hotel</div>
+                                <div class="timeline-description">
+                                    🟢 Green Line (Airport) → Change at Tanah Merah → 🔴 Red Line<br>
+                                    To City: ~30-40 min | Cost: SGD 2-3 per trip
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-category">
+                        <div class="category-label">📍 MRT Hours & Info</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Hours of Operation</div>
+                                <div class="timeline-description">
+                                    ⏰ ~5:30am - 11:30pm daily<br>
+                                    ⚠️ After 11:30pm: Use Grab for transport
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Benefits</div>
+                                <div class="timeline-description">
+                                    ✅ Most efficient transport<br>
+                                    ✅ Air-conditioned<br>
+                                    ✅ Affordable<br>
+                                    ✅ Maps available (download offline)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-category">
+                        <div class="category-label">🚕 Grab Ride-Hailing (Alternative)</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Setup</div>
+                                <div class="timeline-description">
+                                    📱 Download Grab app (iOS/Android)<br>
+                                    💳 Link credit/debit card<br>
+                                    ✅ Immediate booking
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Pricing & When to Use</div>
+                                <div class="timeline-description">
+                                    💰 Changi → City: SGD 20-30<br>
+                                    ⏱️ Faster but pricier than MRT<br>
+                                    🌙 Best for: Late nights (after 11:30pm MRT closes)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: EMERGENCY INFO -->
+        <div id="emergency" class="tab-content">
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> EMERGENCY CONTACTS - SINGAPORE</h2>
+                </div>
+                <div class="section-body">
+                    <div class="contact-card">
+                        <div class="contact-label">🚨 General Emergency / Police / Ambulance</div>
+                        <div class="contact-info">Call: 999</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">⚠️ Police Emergency SMS</div>
+                        <div class="contact-info">SMS: 70999</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">🏥 Changi General Hospital (24h)</div>
+                        <div class="contact-info">+65 6788 8833</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">⚕️ Raffles Medical Clinic (24h, Terminal 3)</div>
+                        <div class="contact-info">+65 6241 8818</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> ACCOMMODATION</h2>
+                </div>
+                <div class="section-body">
+                    <div class="contact-card">
+                        <div class="contact-label">🏨 Crowne Plaza Changi Airport</div>
+                        <div class="contact-info">
+                            Address: 75 Airport Blvd, Singapore 819664<br>
+                            Phone: +65 6823 5300<br>
+                            Email: SINCPihg.com<br>
+                            Status: Connected to Terminal 3 via Skytrain (5-10 min walk)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> EVENT CONTACTS - IMDA</h2>
+                </div>
+                <div class="section-body">
+                    <div class="contact-card">
+                        <div class="contact-label">👩‍💼 Clarissa Koh (Lead)</div>
+                        <div class="contact-info">
+                            Phone: +65 9147 5087<br>
+                            Email: clarissa.koh@imda.gov.sg
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">👩‍💼 Erica Liaw</div>
+                        <div class="contact-info">
+                            Phone: +65 8831 9736<br>
+                            Email: erica.liaw@imda.gov.sg
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">📋 Celeste Ang (PICO Logistics)</div>
+                        <div class="contact-info">
+                            Phone: +65 9757 5305<br>
+                            Email: celeste.ang@pico.com
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">📱 Event Updates</div>
+                        <div class="contact-info">Join official event Slack channel (invitation from IMDA)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> FLIGHT DETAILS</h2>
+                </div>
+                <div class="section-body">
+                    <div class="contact-card">
+                        <div class="contact-label">✈️ OUTBOUND: Philippine Airlines PR 511</div>
+                        <div class="contact-info">
+                            Date: January 18, 2026<br>
+                            Departure: 5:50am from Manila NAIA Terminal 1<br>
+                            Arrival: 9:35am at Singapore Changi Terminal 2<br>
+                            Duration: 3h 45min | Aircraft: Airbus A321<br>
+                            Meal: Breakfast served<br>
+                            Baggage: 30kg checked + 7kg carry-on
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">✈️ RETURN: Philippine Airlines PR 512</div>
+                        <div class="contact-info">
+                            Date: January 22, 2026<br>
+                            Departure: 8:10pm from Singapore Changi Terminal 2<br>
+                            Arrival: 12:20am (Jan 23) Manila NAIA Terminal 1<br>
+                            Duration: 4h 10min | Aircraft: Airbus A321<br>
+                            Meal: Dinner served<br>
+                            Baggage: 30kg checked + 7kg carry-on<br>
+                            Seat: 53A
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">📱 E-Ticket & Booking</div>
+                        <div class="contact-info">
+                            E-Ticket Reference: PR 079-5528196409<br>
+                            Booking Agency: SAFE2TRAVEL PTE LTD<br>
+                            ✅ Web check-in opens 24h before departure
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> USEFUL WEBSITES</h2>
+                </div>
+                <div class="section-body">
+                    <div class="contact-card">
+                        <div class="contact-label">🌐 Tourist Information</div>
+                        <div class="contact-info">Visit Singapore: visitsingapore.com</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">🌐 Immigration & Entry</div>
+                        <div class="contact-info">ICA Singapore: ica.gov.sg/enter-transit-depart</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">🌐 Public Transport</div>
+                        <div class="contact-info">LTA Journey Planner: lta.gov.sg</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-label">🌐 Flight Booking</div>
+                        <div class="contact-info">Philippine Airlines: philippineairlines.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: TRAVEL TIPS -->
+        <div id="tips" class="tab-content">
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> First-Time Traveler Warnings ⚠️</h2>
+                </div>
+                <div class="section-body">
+                    <div class="activity-category">
+                        <div class="category-label">Singapore is VERY STRICT - Know the Rules!</div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-title">❌ NO Littering</div>
+                                <div class="timeline-description">Fine: SGD 300 (first offense)</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">❌ NO Chewing Gum</div>
+                                <div class="timeline-description">Fine: SGD 200-1,000</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">❌ NO Jaywalking</div>
+                                <div class="timeline-description">Fine: SGD 50-500</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">❌ NO Smoking in Public Areas</div>
+                                <div class="timeline-description">Fine: SGD 200</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">❌ NO Vandalism</div>
+                                <div class="timeline-description">Heavily penalized (possible jail time)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Health & Comfort Tips 🏥</h2>
+                </div>
+                <div class="section-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">💧 Stay Hydrated</div>
+                            <div class="timeline-description">Singapore is very humid and hot. Constantly drink water and sports drinks.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">☀️ Sunscreen</div>
+                            <div class="timeline-description">UV rays are strong. Apply SPF 30+ before sightseeing.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">👟 Comfortable Walking Shoes</div>
+                            <div class="timeline-description">You'll be walking a lot. Invest in good footwear.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🌧️ Umbrella</div>
+                            <div class="timeline-description">Brief tropical rain showers are common. Keep small umbrella handy.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">❄️ Air-Conditioning</div>
+                            <div class="timeline-description">Indoors are heavily air-conditioned. Bring light jacket to avoid getting cold.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Money & Payment Tips 💰</h2>
+                </div>
+                <div class="section-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">💳 Currency</div>
+                            <div class="timeline-description">Singapore Dollar (SGD) | Exchange: ~1 SGD = 27 PHP</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">💳 Card Acceptance</div>
+                            <div class="timeline-description">Visa/Mastercard widely accepted in malls, restaurants, hotels</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">💵 Cash for Hawkers</div>
+                            <div class="timeline-description">Many hawker stalls are CASH ONLY. Keep SGD 50-100 on hand.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🎁 Tipping</div>
+                            <div class="timeline-description">NOT expected in Singapore. Service charge often included in bill.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">📱 Mobile Payment</div>
+                            <div class="timeline-description">Apple Pay, Google Pay, and NETS work at most retailers.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Public Conduct & Cultural Tips 🙏</h2>
+                </div>
+                <div class="section-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">👟 Remove Shoes in Temples</div>
+                            <div class="timeline-description">Disrespectful to wear shoes inside places of worship.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🧕 Dress Modestly in Religious Sites</div>
+                            <div class="timeline-description">Cover shoulders and knees when entering temples, mosques, churches.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">📋 Respect Queues</div>
+                            <div class="timeline-description">Singaporeans are very orderly. Always queue politely, no cutting.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🚇 Stand on Escalators</div>
+                            <div class="timeline-description">Left side for standing, right side for walking. Follow the pattern.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🗣️ English is Widely Spoken</div>
+                            <div class="timeline-description">Singapore is international city. Most people speak fluent English. Don't worry about language barriers!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Essential Apps to Download 📱</h2>
+                </div>
+                <div class="section-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">🚕 Grab</div>
+                            <div class="timeline-description">Ride-hailing app (iOS/Android) - Essential for late night transport</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🗺️ Google Maps</div>
+                            <div class="timeline-description">Download offline Singapore maps before leaving airport</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🚇 MRT Singapore App</div>
+                            <div class="timeline-description">Official or use Google Maps for route planning</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">💬 Slack</div>
+                            <div class="timeline-description">Stay updated on event changes and announcements</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🏦 Banking App</div>
+                            <div class="timeline-description">Manage cards and check balance for fraud alerts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Time Management Tips ⏰</h2>
+                </div>
+                <div class="section-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">⏱️ Always Add 30-Min Buffer</div>
+                            <div class="timeline-description">For getting lost, delays, or unexpected issues.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🌙 Last MRT Train</div>
+                            <div class="timeline-description">Operates until ~11:30pm. Plan to return earlier than that.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">📍 Return by 10-11pm</div>
+                            <div class="timeline-description">Gives you 30+ min margin before MRT closes. Allows good rest.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🎯 Event Punctuality</div>
+                            <div class="timeline-description">Workshops start SHARP. Arrive 10-15 min early.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">⏰ Set Multiple Alarms</div>
+                            <div class="timeline-description">Especially important on Jan 18 (2:00am departure) and Jan 20 (8:40am challenge).</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2><span class="expand-icon">▶</span> Challenge Day Prep 🏆</h2>
+                </div>
+                <div class="section-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">💻 Laptop Preparation</div>
+                            <div class="timeline-description">
+                                ✅ Fully charged before 9am<br>
+                                ✅ Bring charger to ballroom<br>
+                                ✅ Ensure all tools/IDE work<br>
+                                ✅ Have internet access (check hotel WiFi)
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">📝 Documentation</div>
+                            <div class="timeline-description">
+                                📋 Take notes from Jan 19 training<br>
+                                📋 Document your reasoning during challenge<br>
+                                📋 This shows "your own understanding" for scoring
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">💧 Hydration</div>
+                            <div class="timeline-description">
+                                🥤 Bring water bottle to ballroom<br>
+                                🥤 3-hour challenge requires hydration<br>
+                                🥤 Stay sharp for full duration
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">⚖️ Challenge Rules - CRITICAL</div>
+                            <div class="timeline-description">
+                                ✅ ALLOWED: AI tools, LLMs, code assistants<br>
+                                ❌ PROHIBITED: Brute force, DDoS, flag sharing, collaborating with other registered participants, automated flag harvesting<br>
+                                🐛 Bug discovery: Report to IMDA immediately (don't exploit = instant disqualification)
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">🎯 Scoring</div>
+                            <div class="timeline-description">
+                                Easy: 450 points<br>
+                                Medium: 475 points<br>
+                                Hard: 500 points<br>
+                                Dynamic: Fewer solves = higher points<br>
+                                Live scoreboard: Track your ranking in real-time
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -657,7 +1766,7 @@
 
         // Calculate days until departure
         function updateCountdown() {
-            const today = new Date();
+            const today = new Date('2026-01-16');
             const departure = new Date('2026-01-18');
             const daysLeft = Math.ceil((departure - today) / (1000 * 60 * 60 * 24));
             document.getElementById('daysUntil').textContent = Math.max(0, daysLeft);
